@@ -30,48 +30,65 @@ def converter(texto):
 
 def processar(linha):
     partes = linha.split()
-    if not partes or partes[0] not in ('M', 'S'):
+
+    if not partes or partes[0] not in ("M", "S"):
         raise OperacaoInvalida()
-    if partes[0] == 'M':
+
+    if partes[0] == "M":
         if len(partes) != 3:
             raise EntradaInvalida()
-        a, b = converter(partes[1]), converter(partes[2])
-        if not (1 <= a <= 10**9 and 1 <= b <= 10**9):
+
+        a = converter(partes[1])
+        b = converter(partes[2])
+
+        if a <= 0 or b <= 0:
             raise EntradaInvalida()
-        return f'MDC = {mdc(a, b)}'
+
+        return f"MDC = {mdc(a, b)}"
+
     if len(partes) != 2:
         raise EntradaInvalida()
+
     numero = converter(partes[1])
-    if not 0 <= numero <= 10**18:
+
+    if numero < 0:
         raise EntradaInvalida()
-    return f'SOMA = {soma_digitos(numero)}'
+
+    return f"SOMA = {soma_digitos(numero)}"
 
 
 def main():
     linhas = sys.stdin.read().splitlines()
+
     if not linhas:
         return
+
     try:
         quantidade = int(linhas[0].strip())
     except ValueError:
-        print('ERRO: EntradaInvalida')
+        print("ERRO: EntradaInvalida")
         return
+
     if not 1 <= quantidade <= 100:
-        print('ERRO: EntradaInvalida')
+        print("ERRO: EntradaInvalida")
         return
+
     resultados = []
+
     for indice in range(quantidade):
-        linha = linhas[indice + 1] if indice + 1 < len(linhas) else ''
+        linha = linhas[indice + 1] if indice + 1 < len(linhas) else ""
+
         try:
             resultado = processar(linha)
         except OperacaoInvalida:
-            resultado = 'ERRO: OperacaoInvalida'
+            resultado = "ERRO: OperacaoInvalida"
         except EntradaInvalida:
-            resultado = 'ERRO: EntradaInvalida'
+            resultado = "ERRO: EntradaInvalida"
         finally:
             resultados.append(resultado)
-    print('\n'.join(resultados))
+
+    print("\n".join(resultados))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

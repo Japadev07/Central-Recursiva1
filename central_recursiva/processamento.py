@@ -17,12 +17,12 @@ def processar(linha):
         if len(partes) != 3:
             raise EntradaInvalida()
         a, b = converter(partes[1]), converter(partes[2])
-        if not (1 <= a <= 10**9 and 1 <= b <= 10**9):
+        if a <= 0 or b <= 0:
             raise EntradaInvalida()
         return f'MDC = {mdc(a, b)}'
     if len(partes) != 2:
         raise EntradaInvalida()
     numero = converter(partes[1])
-    if not 0 <= numero <= 10**18:
+    if numero < 0:
         raise EntradaInvalida()
     return f'SOMA = {soma_digitos(numero)}'

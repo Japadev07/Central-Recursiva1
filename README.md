@@ -3,8 +3,6 @@
 ## Integrantes
 
 - Everton Felipe Cirqueira da Silva
-- [PREENCHER: nome completo do segundo integrante]
-
 ## Descrição
 
 Programa Python que calcula o MDC de dois inteiros positivos e a soma dos dígitos de um inteiro não negativo, conforme o problema CentralRecursivaRobusta.

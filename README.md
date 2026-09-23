@@ -26,4 +26,4 @@ O MDC usa o algoritmo de Euclides: `mdc(a, b)` chama `mdc(b, a % b)` até `b == 
 
 ## Exceções personalizadas
 
-`OperacaoInvalida` representa um código diferente de M e S. `EntradaInvalida` representa números não inteiros, quantidade incorreta de argumentos ou valores fora dos limites. Ambas herdam de `Exception`.
+`OperacaoInvalida` representa um código diferente de M e S. `EntradaInvalida` representa números não inteiros, quantidade incorreta de argumentos ou  zero ou números negativos no MDC; números negativos na soma dos dígitos. Ambas herdam de `Exception`.
